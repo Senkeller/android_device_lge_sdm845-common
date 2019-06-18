@@ -1,0 +1,6 @@
+framework/QtiTelephonyServicelibrary.jar
+-app/QtiTelephonyService/QtiTelephonyService.apk
+framework/qcrilhook.jar
+etc/permissions/qcrilhook.xml
+lib/vendor.qti.hardware.radio.qcrilhook@1.0.so
+lib64/vendor.qti.hardware.radio.qcrilhook@1.0.so
