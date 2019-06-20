@@ -80,6 +80,10 @@ TARGET_USES_MEDIA_EXTENSIONS := false
 # Charger
 BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
+# FM Radio
+BOARD_HAS_QCA_FM_SOC := cherokee
+BOARD_HAVE_QCOM_FM := true
+
 # Dex
 ifeq ($(HOST_OS),linux)
   ifneq ($(TARGET_BUILD_VARIANT),eng)
