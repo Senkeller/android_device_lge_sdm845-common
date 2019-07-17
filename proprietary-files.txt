@@ -1,6 +1,21 @@
-framework/QtiTelephonyServicelibrary.jar
+# QTI TelephonyService
+-framework/QtiTelephonyServicelibrary.jar
 -app/QtiTelephonyService/QtiTelephonyService.apk
+
+# qcrilhook
 framework/qcrilhook.jar
 etc/permissions/qcrilhook.xml
 lib/vendor.qti.hardware.radio.qcrilhook@1.0.so
 lib64/vendor.qti.hardware.radio.qcrilhook@1.0.so
+
+# FM Radio
+lib64/libfm-hci.so
+lib64/fm_helium.so
+lib/fm_helium.so
+lib/libfm-hci.so
+lib/vendor.qti.hardware.fm@1.0.so
+lib64/vendor.qti.hardware.fm@1.0.so
+
+# Miscellaneous
+-framework/boot-QPerformance.vdex
+-framework/boot-UxPerformance.vdex
