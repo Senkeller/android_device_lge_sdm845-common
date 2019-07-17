@@ -1,4 +1,6 @@
 subdirs = [
     "lights",
-    "tri-state-key"
+    "tri-state-key",
+    "libhidl",
+    "gpt-utils"
 ]
