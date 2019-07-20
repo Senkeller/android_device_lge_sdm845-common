@@ -379,4 +379,7 @@
     ActivityManager based on screen size. -->
     <integer name="config_extraFreeKbytesAdjust">1</integer>
 
+    <!-- True if Unprocessed audio source supports the required frequency range and level -->
+    <bool name="config_supportAudioSourceUnprocessed">true</bool>
+
 </resources>
