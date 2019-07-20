@@ -22,8 +22,8 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # For no SIM users
 PRODUCT_PROPERTY_OVERRIDES += \
-    keyguard.no_require_sim=true
-		ro.nfc.port=I2C
+    keyguard.no_require_sim=true \
+    ro.nfc.port=I2C
 
 # Enable Treble camera shim to free buffers earlier than default
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -32,23 +32,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Set display color mode to Automatic by default + HDR
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.sf.color_saturation=1.0 \
-	  persist.sys.sf.native_mode=2
-		ro.qcom.hdr.config=/vendor/etc/hdr_tm_config.xml
+    persist.sys.sf.native_mode=2 \
+    ro.qcom.hdr.config=/vendor/etc/hdr_tm_config.xml
 
 # Display + HDR
 PRODUCT_COPY_FILES += \
-	  $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
-		$(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
-		$(LOCAL_PATH)/configs/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
-		$(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
-		$(LOCAL_PATH)/configs/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
+    $(LOCAL_PATH)/configs/media_codecs.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs.xml \
+    $(LOCAL_PATH)/configs/media_codecs_performance.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_performance.xml \
+    $(LOCAL_PATH)/configs/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
+    $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_V1_0.xml \
+    $(LOCAL_PATH)/configs/media_profiles_vendor.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_vendor.xml \
     $(LOCAL_PATH)/configs/hdr_tm_config.xml:$(TARGET_COPY_OUT_VENDOR)/etc/hdr_tm_config.xml
 
 # Random stuff
 PRODUCT_COPY_FILES += \
-  	$(LOCAL_PATH)/configs/system_properties.xml:$(TARGET_COPY_OUT_VENDOR)/etc/system_properties.xml \
-		$(LOCAL_PATH)/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
-  	$(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
+    $(LOCAL_PATH)/configs/system_properties.xml:$(TARGET_COPY_OUT_VENDOR)/etc/system_properties.xml \
+    $(LOCAL_PATH)/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-qti.xml \
+    $(LOCAL_PATH)/configs/qti_whitelist.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/sysconfig/qti_whitelist.xml
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
@@ -62,7 +62,7 @@ AB_OTA_PARTITIONS += \
     boot \
     system \
     dtbo \
-		vendor \
+    vendor \
     vbmeta
 
 AB_OTA_POSTINSTALL_CONFIG += \
@@ -80,7 +80,7 @@ PRODUCT_PACKAGES += \
 
 #GestureHandler
 PRODUCT_PACKAGES += \
-	GestureHandler
+    GestureHandler
 
 # Audio
 PRODUCT_PACKAGES += \
@@ -93,18 +93,18 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_effects.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.conf \
     $(LOCAL_PATH)/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml \
-		$(LOCAL_PATH)/audio/audio_effects_tune.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_tune.xml \
+    $(LOCAL_PATH)/audio/audio_effects_tune.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects_tune.xml \
     $(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
-		$(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
-		$(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
-		$(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
-		$(LOCAL_PATH)/audio/audio_tuning_mixer_tavil.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer_tavil.txt \
-		$(LOCAL_PATH)/audio/mixer_paths_tavil.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_tavil.xml \
-		$(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
-		$(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml \
-		$(LOCAL_PATH)/audio/graphite_ipc_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/graphite_ipc_platform_info.xml \
-		$(LOCAL_PATH)/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml \
-		$(LOCAL_PATH)/configs/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
+    $(LOCAL_PATH)/audio/audio_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_platform_info.xml \
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/audio_policy_configuration.xml \
+    $(LOCAL_PATH)/audio/audio_tuning_mixer_tavil.txt:$(TARGET_COPY_OUT_VENDOR)/etc/audio_tuning_mixer_tavil.txt \
+    $(LOCAL_PATH)/audio/mixer_paths_tavil.xml:$(TARGET_COPY_OUT_VENDOR)/etc/mixer_paths_tavil.xml \
+    $(LOCAL_PATH)/audio/sound_trigger_mixer_paths.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_mixer_paths.xml \
+    $(LOCAL_PATH)/audio/sound_trigger_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/sound_trigger_platform_info.xml \
+    $(LOCAL_PATH)/audio/graphite_ipc_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/graphite_ipc_platform_info.xml \
+    $(LOCAL_PATH)/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml \
+    $(LOCAL_PATH)/configs/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
 
 # Camera
 PRODUCT_PACKAGES += \
@@ -155,11 +155,13 @@ PRODUCT_PACKAGES += \
 
 # FM packages
 PRODUCT_PACKAGES += \
-	libqcomfm_jni \
-	android.hardware.broadcastradio@1.0-impl \
-	FM2 \
-	qcom.fmradio \
-	qcom.fmradio.xml
+    libqcomfm_jni \
+    android.hardware.broadcastradio@1.0-impl \
+    FM2 \
+    qcom.fmradio \
+    qcom.fmradio.xml
+    
+PRODUCT_BOOT_JARS += qcom.fmradio
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -177,7 +179,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.soundtrigger@2.1-impl \
-		android.hardware.broadcastradio@1.0-impl \
+    android.hardware.broadcastradio@1.0-impl \
     audio.a2dp.default \
     tinymix
 
@@ -202,8 +204,8 @@ TARGET_SCREEN_WIDTH := 1440
 
 # Boot control
 PRODUCT_PACKAGES_DEBUG += \
-    bootctl
-		android.hardware.boot@1.0-impl \
+    bootctl.sdm845 \
+    android.hardware.boot@1.0-impl \
     android.hardware.boot@1.0-service
 
 # Context Hub
@@ -223,9 +225,9 @@ PRODUCT_PACKAGES += \
 
 # Memtrack HAL
 PRODUCT_PACKAGES += \
-		  memtrack.sdm845 \
-		  android.hardware.memtrack@1.0-impl \
-		  android.hardware.memtrack@1.0-service
+    memtrack.sdm845 \
+    android.hardware.memtrack@1.0-impl \
+    android.hardware.memtrack@1.0-service
 
 # DRM HAL
 PRODUCT_PACKAGES += \
@@ -238,15 +240,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service
 
-# FM packages
-PRODUCT_PACKAGES += \
-	libqcomfm_jni \
-	android.hardware.broadcastradio@1.0-impl \
-	FM2 \
-	qcom.fmradio \
-	qcom.fmradio.xml
 
-PRODUCT_BOOT_JARS += qcom.fmradio
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
@@ -295,13 +289,13 @@ PRODUCT_PACKAGES += \
 
 #ipacm configuration files
 PRODUCT_COPY_FILES += \
-		hardware/qcom/data/ipacfg-mgr/msm8998/ipacm/src/IPACM_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/IPACM_cfg.xml
+    hardware/qcom/data/ipacfg-mgr/msm8998/ipacm/src/IPACM_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/IPACM_cfg.xml
 PRODUCT_PACKAGES += \
-		hwcomposer.sdm845 \
-		android.hardware.graphics.composer@2.2-service \
-		gralloc.sdm845 \
-		android.hardware.graphics.mapper@2.0-impl-qti-display \
-		vendor.qti.hardware.display.allocator@1.0-service
+    hwcomposer.sdm845 \
+    android.hardware.graphics.composer@2.2-service \
+    gralloc.sdm845 \
+    android.hardware.graphics.mapper@2.0-impl-qti-display \
+    vendor.qti.hardware.display.allocator@1.0-service
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -358,17 +352,17 @@ PRODUCT_PACKAGES += \
 
 # Light HAL
 PRODUCT_PACKAGES += \
-		 lights.sdm845
+    lights.sdm845
 
 # Bluetooth HAL
 PRODUCT_PACKAGES += \
-		  android.hardware.bluetooth@1.0-impl-qti \
-		  android.hardware.bluetooth@1.0-service-qti
+    android.hardware.bluetooth@1.0-impl-qti \
+    android.hardware.bluetooth@1.0-service-qti
 
 # Bluetooth WiPower
 PRODUCT_PROPERTY_OVERRIDES += \
-		ro.vendor.bluetooth.emb_wp_mode=false \
-	  ro.vendor.bluetooth.wipower=false
+    ro.vendor.bluetooth.emb_wp_mode=false \
+    ro.vendor.bluetooth.wipower=false
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -435,7 +429,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors HALs
 PRODUCT_PACKAGES += \
-		sensors.sdm845 \
+    sensors.sdm845 \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
 
@@ -509,10 +503,10 @@ PRODUCT_PACKAGES_DEBUG += \
 #Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
-		android.hardware.wifi@1.0-service \
-		wificond \
-		wifilogd \
-		libwpa_client
+    android.hardware.wifi@1.0-service \
+    wificond \
+    wifilogd \
+    libwpa_client
 
 LIB_NL := libnl_2
 PRODUCT_PACKAGES += $(LIB_NL)
