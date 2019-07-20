@@ -17,6 +17,9 @@
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/lge/sdm845-common/sdm845-common-vendor.mk)
 
+# setup dalvik vm configs
+$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+
 # For no SIM users
 PRODUCT_PROPERTY_OVERRIDES += \
     keyguard.no_require_sim=true
@@ -103,11 +106,6 @@ PRODUCT_COPY_FILES += \
 		$(LOCAL_PATH)/audio/listen_platform_info.xml:$(TARGET_COPY_OUT_VENDOR)/etc/listen_platform_info.xml \
 		$(LOCAL_PATH)/configs/media_codecs_vendor_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_vendor_audio.xml
 
-
-# Boot control
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl
-
 # Camera
 PRODUCT_PACKAGES += \
     Snap
@@ -147,15 +145,13 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
 
+# Use the default charger mode images
+PRODUCT_PACKAGES += \
+    charger_res_images
+
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service
-
-# NFC
-PRODUCT_PACKAGES += \
-    NfcNci \
-    Tag \
-    SecureElement
 
 # FM packages
 PRODUCT_PACKAGES += \
@@ -181,6 +177,7 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@2.0-impl \
     android.hardware.audio.effect@4.0-impl \
     android.hardware.soundtrigger@2.1-impl \
+		android.hardware.broadcastradio@1.0-impl \
     audio.a2dp.default \
     tinymix
 
@@ -206,13 +203,8 @@ TARGET_SCREEN_WIDTH := 1440
 # Boot control
 PRODUCT_PACKAGES_DEBUG += \
     bootctl
-
-# Camera
-PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
-    Snap \
-    vendor.qti.hardware.camera.device@1.0.vendor
+		android.hardware.boot@1.0-impl \
+    android.hardware.boot@1.0-service
 
 # Context Hub
 PRODUCT_PACKAGES += \
@@ -223,13 +215,17 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-impl \
     android.hardware.graphics.composer@2.1-service \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
     libqdutils \
     libdrm.vendor \
     libtinyxml \
     libvulkan \
     vendor.display.config@1.0
+
+# Memtrack HAL
+PRODUCT_PACKAGES += \
+		  memtrack.sdm845 \
+		  android.hardware.memtrack@1.0-impl \
+		  android.hardware.memtrack@1.0-service
 
 # DRM HAL
 PRODUCT_PACKAGES += \
@@ -297,6 +293,16 @@ PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
 
+#ipacm configuration files
+PRODUCT_COPY_FILES += \
+		  hardware/qcom/data/ipacfg-mgr/msm8998/ipacm/src/IPACM_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/IPACM_cfg.xml
+PRODUCT_PACKAGES += \
+		  hwcomposer.sdm845 \
+		  android.hardware.graphics.composer@2.2-service \
+		  gralloc.sdm845 \
+		  android.hardware.graphics.mapper@2.0-impl-qti-display \
+		  vendor.qti.hardware.display.allocator@1.0-service
+
 # Keymaster HAL
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
@@ -334,6 +340,10 @@ PRODUCT_PACKAGES += \
     SecureElement \
     Tag
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/libnfc-nci.conf:$(TARGET_COPY_OUT_SYSTEM)/etc/libnfc-nci.conf \
+    $(LOCAL_PATH)/configs/libnfc-nxp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp.conf
+
 # OMX
 PRODUCT_PACKAGES += \
     libc2dcolorconvert \
@@ -345,6 +355,20 @@ PRODUCT_PACKAGES += \
     libOmxVdec \
     libOmxVenc \
     libstagefrighthw
+
+# Light HAL
+PRODUCT_PACKAGES += \
+		 lights.sdm845
+
+# Bluetooth HAL
+PRODUCT_PACKAGES += \
+		  android.hardware.bluetooth@1.0-impl-qti \
+		  android.hardware.bluetooth@1.0-service-qti
+
+# Bluetooth WiPower
+PRODUCT_PROPERTY_OVERRIDES += \
+			 ro.vendor.bluetooth.emb_wp_mode=false \
+			 ro.vendor.bluetooth.wipower=false
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -409,10 +433,37 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
     $(LOCAL_PATH)/seccomp/mediaextractor-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediaextractor.policy
 
-# Sensors
+# Sensors HALs
 PRODUCT_PACKAGES += \
+		sensors.sdm845 \
     android.hardware.sensors@1.0-impl \
     android.hardware.sensors@1.0-service
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
+
+# Enable Codec 2.0
+PRODUCT_PACKAGES += \
+    libmedia_codecserviceregistrant \
+    libqcodec2 \
+    libstagefright_ccodec \
+    vendor.qti.media.c2@1.0-service \
+
+# Camera HALs
+PRODUCT_PACKAGES += \
+    android.hardware.camera.provider@2.4-impl \
+    android.hardware.camera.provider@2.4-service_64 \
+    camera.device@3.2-impl \
+    camera.sdm845 \
+    libqomx_core \
+    libmmjpeg_interface \
+    libmmcamera_interface \
+    libcameradepthcalibrator
+
+# FS
+PRODUCT_PACKAGES += \
+    fs_config_dirs \
+    fs_config_files
 
 # Telephony
 PRODUCT_PACKAGES += \
@@ -457,7 +508,14 @@ PRODUCT_PACKAGES_DEBUG += \
 
 #Wifi
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilts/etc/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
+    $(LOCAL_PATH)/prebuilts/etc/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
+		android.hardware.wifi@1.0-service \
+		wificond \
+		wifilogd \
+		libwpa_client
+
+LIB_NL := libnl_2
+PRODUCT_PACKAGES += $(LIB_NL)
 
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
