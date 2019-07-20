@@ -295,13 +295,13 @@ PRODUCT_PACKAGES += \
 
 #ipacm configuration files
 PRODUCT_COPY_FILES += \
-		  hardware/qcom/data/ipacfg-mgr/msm8998/ipacm/src/IPACM_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/IPACM_cfg.xml
+		hardware/qcom/data/ipacfg-mgr/msm8998/ipacm/src/IPACM_cfg.xml:$(TARGET_COPY_OUT_VENDOR)/etc/IPACM_cfg.xml
 PRODUCT_PACKAGES += \
-		  hwcomposer.sdm845 \
-		  android.hardware.graphics.composer@2.2-service \
-		  gralloc.sdm845 \
-		  android.hardware.graphics.mapper@2.0-impl-qti-display \
-		  vendor.qti.hardware.display.allocator@1.0-service
+		hwcomposer.sdm845 \
+		android.hardware.graphics.composer@2.2-service \
+		gralloc.sdm845 \
+		android.hardware.graphics.mapper@2.0-impl-qti-display \
+		vendor.qti.hardware.display.allocator@1.0-service
 
 # Keymaster HAL
 PRODUCT_PACKAGES += \
@@ -367,8 +367,8 @@ PRODUCT_PACKAGES += \
 
 # Bluetooth WiPower
 PRODUCT_PROPERTY_OVERRIDES += \
-			 ro.vendor.bluetooth.emb_wp_mode=false \
-			 ro.vendor.bluetooth.wipower=false
+		ro.vendor.bluetooth.emb_wp_mode=false \
+	  ro.vendor.bluetooth.wipower=false
 
 # Permissions
 PRODUCT_COPY_FILES += \
