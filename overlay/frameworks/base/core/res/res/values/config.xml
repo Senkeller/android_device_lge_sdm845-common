@@ -389,4 +389,7 @@
      and one pSIM) -->
      <integer name="config_num_physical_slots">2</integer>
 
+    <!-- Doze: should the TYPE_PICK_UP_GESTURE sensor be used as a pulse signal. -->
+    <bool name="config_dozePulsePickup">true</bool>
+
 </resources>
