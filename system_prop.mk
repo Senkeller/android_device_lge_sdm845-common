@@ -27,6 +27,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=true \
     persist.sys.camera.preview.size=1920x1080 \
 
+# Enable Treble camera shim to free buffers earlier than default
+PRODUCT_PROPERTY_OVERRIDES += \
+		ro.vendor.camera.free_buf_early=true
+
 # CNE
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.cne.feature=1
