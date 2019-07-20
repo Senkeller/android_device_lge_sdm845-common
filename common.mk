@@ -160,7 +160,7 @@ PRODUCT_PACKAGES += \
     FM2 \
     qcom.fmradio \
     qcom.fmradio.xml
-    
+
 PRODUCT_BOOT_JARS += qcom.fmradio
 
 # Telephony
@@ -503,6 +503,8 @@ PRODUCT_PACKAGES_DEBUG += \
 #Wifi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/prebuilts/etc/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini \
+
+PRODUCT_PACKAGES += \
     android.hardware.wifi@1.0-service \
     wificond \
     wifilogd \
