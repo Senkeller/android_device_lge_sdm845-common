@@ -393,6 +393,6 @@
     <bool name="config_dozePulsePickup">true</bool>
 
     <!-- Specify if the fingerprint hardware support gestures-->
-    <bool name="config_fingerprintSupportsGestures">false</bool>
+    <bool name="config_fingerprintSupportsGestures">true</bool>
 
 </resources>
