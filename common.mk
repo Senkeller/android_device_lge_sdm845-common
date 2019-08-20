@@ -78,9 +78,10 @@ AB_OTA_POSTINSTALL_CONFIG += \
 PRODUCT_PACKAGES += \
     AntHalService
 
-#GestureHandler
+#LGDoze & GestureHandler
 PRODUCT_PACKAGES += \
-    GestureHandler
+    LGDoze \
+		GestureHandler
 
 # Audio
 PRODUCT_PACKAGES += \
