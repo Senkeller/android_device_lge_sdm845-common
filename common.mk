@@ -18,7 +18,8 @@
 $(call inherit-product-if-exists, vendor/lge/sdm845-common/sdm845-common-vendor.mk)
 
 # setup dalvik vm configs
-$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
+# Do not override vendor's dalvik vm properties
+#$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # For no SIM users
 PRODUCT_PROPERTY_OVERRIDES += \
