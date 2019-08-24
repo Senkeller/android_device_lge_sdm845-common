@@ -367,7 +367,7 @@
     lowmemorykiller.  Overrides the default value chosen by ActivityManager based
     on screen size.  0 prevents keeping any extra memory over what the kernel keeps
     by default.  -1 keeps the default. -->
-    <integer name="config_extraFreeKbytesAbsolute">2</integer>
+    <integer name="config_extraFreeKbytesAbsolute">4096</integer>
 
     <!-- Device configuration adjusting the /proc/sys/vm/extra_free_kbytes
     tunable in the kernel (if it exists).  0 uses the default value chosen by
@@ -377,7 +377,7 @@
     used by processes but may cause more allocations to block waiting on disk I/O
     or lowmemorykiller.  Directly added to the default value chosen by
     ActivityManager based on screen size. -->
-    <integer name="config_extraFreeKbytesAdjust">1</integer>
+    <integer name="config_extraFreeKbytesAdjust">2048</integer>
 
     <!-- True if Unprocessed audio source supports the required frequency range and level -->
     <bool name="config_supportAudioSourceUnprocessed">true</bool>
