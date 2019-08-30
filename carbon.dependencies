@@ -1,7 +1,7 @@
 [
  {
-   "repository" : "J0SH1X/android_kernel_lge_sdm845",
+   "repository" : "LameMonster82/android_kernel_lge_sdm845.git",
    "target_path": "kernel/lge/sdm845",
-   "revision"   : "lineage-16.0"
+   "revision"   : "android-4.9.112"
  }
 ]
