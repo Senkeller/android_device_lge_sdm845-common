@@ -515,8 +515,12 @@ PRODUCT_PACKAGES += \
     wifilogd \
     libwpa_client
 
-LIB_NL := libnl_2
-PRODUCT_PACKAGES += $(LIB_NL)
+PRODUCT_SOONG_NAMESPACES += \
+    hardware/qcom/sdm845 \
+    device/lge/sdm845-common \
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/permissions/privapp-permissions-wfd.xml:system/etc/permissions/privapp-permissions-wfd.xml
 
 # Properties
 -include $(LOCAL_PATH)/system_prop.mk
