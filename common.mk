@@ -165,15 +165,12 @@ PRODUCT_PACKAGES += \
     qcom.fmradio \
     qcom.fmradio.xml
 
-PRODUCT_BOOT_JARS += qcom.fmradio
+#PRODUCT_BOOT_JARS += qcom.fmradio
 
 # Filesystem management tools
 PRODUCT_PACKAGES += \
-    fsck.f2fs mkfs.f2fs
-
-# Telephony
-PRODUCT_PACKAGES += \
-    telephony-ext
+    fsck.f2fs \
+		mkfs.f2fs
 
 # tri-state-key
 PRODUCT_PACKAGES += \
