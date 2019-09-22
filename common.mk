@@ -486,16 +486,17 @@ PRODUCT_PACKAGES += \
 
 # Update engine
 PRODUCT_PACKAGES += \
-    brillo_update_payload \
     update_engine \
     update_engine_sideload \
     update_verifier
 
 PRODUCT_STATIC_BOOT_CONTROL_HAL := \
-    bootctrl.sdm845 \
+		bootctrl.sdm845.recovery \
     libcutils \
-    libgptutils \
-    libz \
+    libgptutils.sdm845.recovery \
+    libz
+PRODUCT_PACKAGES += \
+		android.hardware.boot@1.0-impl.recovery
 
 PRODUCT_PACKAGES_DEBUG += \
     update_engine_client
