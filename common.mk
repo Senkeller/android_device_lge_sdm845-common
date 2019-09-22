@@ -17,6 +17,9 @@
 # Get non-open-source specific aspects
 $(call inherit-product-if-exists, vendor/lge/sdm845-common/sdm845-common-vendor.mk)
 
+# Include APEX
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
 # setup dalvik vm configs
 # Do not override vendor's dalvik vm properties
 #$(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
