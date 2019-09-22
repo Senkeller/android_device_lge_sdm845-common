@@ -117,8 +117,7 @@ PRODUCT_COPY_FILES += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
-    init.recovery.judy.rc \
-    init.loglevel.rc
+    init.recovery.judy.rc
 
 # Display
 PRODUCT_PACKAGES += \
