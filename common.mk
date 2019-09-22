@@ -121,8 +121,8 @@ PRODUCT_PACKAGES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    libvulkan \
-    DisplayMode
+    libvulkan
+#    DisplayMode
 
 # HIDL
 PRODUCT_PACKAGES += \
