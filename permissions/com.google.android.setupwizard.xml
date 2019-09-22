@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<permissions>
+   <privapp-permissions package="com.google.android.setupwizard">
+     <privapp-permission android:name="android.permission.REQUEST_NETWORK_SCORES" />
+   </privapp-permissions>
+</permissions>
