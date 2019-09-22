@@ -1,6 +1,3 @@
-subdirs = [
-    "lights",
-    "tri-state-key",
-    "libhidl",
-    "gpt-utils"
-]
+soong_namespace {
+    imports: ["hardware/qcom/bootctrl"],
+}
