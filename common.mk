@@ -207,11 +207,11 @@ PRODUCT_COPY_FILES += \
 TARGET_SCREEN_HEIGHT := 3120
 TARGET_SCREEN_WIDTH := 1440
 
-# Boot control
-PRODUCT_PACKAGES_DEBUG += \
-    bootctl.sdm845 \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
+# Bootctrl
+PRODUCT_PACKAGES += \
+    android.hardware.boot@1.0-impl.recovery \
+    bootctrl.sdm845 \
+    bootctrl.sdm845.recovery
 
 # Context Hub
 PRODUCT_PACKAGES += \
@@ -244,8 +244,6 @@ PRODUCT_PACKAGES += \
 # Fingerprint
 PRODUCT_PACKAGES += \
     android.hardware.biometrics.fingerprint@2.1-service
-
-
 
 # Gatekeeper HAL
 PRODUCT_PACKAGES += \
