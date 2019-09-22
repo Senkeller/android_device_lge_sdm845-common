@@ -160,6 +160,9 @@ BOARD_SUPPRESS_EMMC_WIPE := true
 # Extended Filesystem Support
 TARGET_EXFAT_DRIVER := sdfat
 
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
 BOARD_HAS_QCOM_WLAN_SDK := true
